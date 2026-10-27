@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop | Zal's Beadworks</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Prata&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./public/assets/global.css">
+</head>
+
+<body>
+  <div class="announcement">Handcrafted with love · Made to make a statement</div>
+  <header class="site-header"><a class="brand" href="index.html">zal's <span>beadworks</span></a><button
+      class="menu-toggle" aria-label="Open navigation">☰</button>
+    <nav class="nav"><a href="index.html">Home</a><a class="active" href="shop.html">Shop</a><a href="about.html">About
+        us</a></nav>
+    <div class="header-actions"><a class="icon-link" href="shop.html">⌕</a><a class="cart-link" href="cart.html">Bag
+        <span class="cart-count">0</span></a></div>
+  </header>
+  <main>
+    <section class="page-intro">
+      <p class="eyebrow">THE COLLECTION</p>
+      <h1>Find your kind of beautiful.</h1>
+      <p>Thoughtfully handmade pieces for everyday moments and special occasions.</p>
+    </section>
+    <section class="section shop-section">
+      <div class="shop-toolbar">
+        <div class="filter-pills" id="filters"><button class="filter-pill active" data-category="All">All
+            pieces</button><button class="filter-pill" data-category="Waistbeads">Waistbeads</button><button
+            class="filter-pill" data-category="Bracelets">Bracelets</button><button class="filter-pill"
+            data-category="Necklaces">Necklaces</button><button class="filter-pill"
+            data-category="Anklets">Anklets</button></div><label class="sort-label">Sort by <select id="sort-products">
+            <option value="featured">Featured</option>
+            <option value="low">Price: low to high</option>
+            <option value="high">Price: high to low</option>
+          </select></label>
+      </div>
+      <div class="product-grid shop-grid" id="shop-products"></div>
+      <p class="empty-state hidden" id="empty-state">No pieces in this category just yet.</p>
+    </section>
+    <section class="newsletter">
+      <div>
+        <p class="eyebrow light">A LITTLE SOMETHING FOR YOU</p>
+        <h2>Be the first to know.</h2>
+        <p>New drops, styling inspiration, and little notes from our studio.</p>
+      </div>
+      <form id="newsletter-form"><label class="sr-only" for="newsletter-email">Email address</label><input
+          id="newsletter-email" type="email" placeholder="Your email address" required><button type="submit">Join the
+          list ↗</button>
+        <p class="form-message" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+  <footer class="footer">
+    <div><a class="brand footer-brand" href="index.html">zal's <span>beadworks</span></a>
+      <p>Handcrafted pieces. Your kind of beautiful.</p>
+    </div>
+    <div>
+      <h4>Explore</h4><a href="shop.html">Shop all</a><a href="about.html">Our story</a><a href="cart.html">Your bag</a>
+    </div>
+    <div>
+      <h4>Say hello</h4><a href="mailto:hello@zalsbeadworks.com">hello@zalsbeadworks.com</a>
+    </div>
+    <div class="copyright">© <span id="year"></span> Zal's Beadworks. Made with love.</div>
+  </footer>
+  <script src="./public/assets/main.js"></script>
+</body>
+
+</html>
