@@ -16,7 +16,7 @@
       class="menu-toggle" aria-label="Open navigation">☰</button>
     <nav class="nav"><a href="index.html">Home</a><a class="active" href="shop.html">Shop</a><a href="about.html">About
         us</a></nav>
-    <div class="header-actions"><a class="icon-link" href="shop.html">⌕</a><a class="cart-link" href="cart.html">Bag
+    <div class="header-actions"><a class="icon-link" href="shop.html#product-search">⌕</a><a class="cart-link" href="cart.html">Bag
         <span class="cart-count">0</span></a></div>
   </header>
   <main>
@@ -27,6 +27,8 @@
     </section>
     <section class="section shop-section">
       <div class="shop-toolbar">
+        <div class="shop-controls">
+        <label class="shop-search"><span class="sr-only">Search jewellery</span><input id="product-search" type="search" placeholder="Search the collection" autocomplete="off"></label>
         <div class="filter-pills" id="filters"><button class="filter-pill active" data-category="All">All
             pieces</button><button class="filter-pill" data-category="Waistbeads">Waistbeads</button><button
             class="filter-pill" data-category="Bracelets">Bracelets</button><button class="filter-pill"
@@ -36,9 +38,10 @@
             <option value="low">Price: low to high</option>
             <option value="high">Price: high to low</option>
           </select></label>
+        </div>
       </div>
       <div class="product-grid shop-grid" id="shop-products"></div>
-      <p class="empty-state hidden" id="empty-state">No pieces in this category just yet.</p>
+      <p class="empty-state hidden" id="empty-state">No jewellery matches your search. Try another name or category.</p>
     </section>
     <section class="newsletter">
       <div>

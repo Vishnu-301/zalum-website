@@ -236,7 +236,7 @@ select {
   width: 100%;
   justify-self: center;
   border-radius: 200px 200px 22px 22px;
-  background-image: url('https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=90');
+  background-image: url('../images/Pasted%20image.png');
   background-size: cover;
   background-position: center;
   box-shadow: 0 20px 60px #27034740;
@@ -827,7 +827,7 @@ h2 {
 .about-image {
   height: 570px;
   border-radius: 220px 220px 20px 20px;
-  background: url('https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=1000&q=90') center/cover
+  background: url('../images/Pasted%20image.png') center/cover
 }
 
 .about-intro h1 {
@@ -1397,5 +1397,79 @@ h2 {
 
   .breadcrumbs {
     padding: 18px 5% 0
+  }
+}
+
+/* Finish details */
+:focus-visible {
+  outline: 3px solid #a66bc7;
+  outline-offset: 3px;
+}
+
+.shop-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+}
+
+.shop-search input {
+  width: min(245px, 75vw);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 9px 15px;
+  color: var(--ink);
+  background: #fff;
+  font-size: 12px;
+}
+
+.shop-search input:focus {
+  border-color: var(--purple);
+  outline: 2px solid #dbb5ee88;
+}
+
+.cart-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cart-item-actions .quantity-control {
+  gap: 12px;
+  padding: 3px 10px;
+}
+
+.cart-item-actions .quantity-control button {
+  font-size: 16px;
+}
+
+.button:focus-visible,
+.mini-add:focus-visible,
+.filter-pill:focus-visible {
+  outline-offset: 3px;
+}
+
+@media (max-width: 620px) {
+  .shop-controls {
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .shop-search,
+  .shop-search input {
+    width: 100%;
+  }
+
+  .cart-item-actions {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
   }
 }

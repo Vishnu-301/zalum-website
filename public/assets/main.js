@@ -157,11 +157,20 @@ const shopProducts = document.getElementById("shop-products");
 if (shopProducts) {
   let category = new URLSearchParams(location.search).get("category") || "All";
   const filters = document.getElementById("filters");
+  const search = document.getElementById("product-search");
   function renderShop() {
     let items =
       category === "All"
         ? [...PRODUCTS]
         : PRODUCTS.filter((p) => p.category === category);
+    const query = (search?.value || "").trim().toLocaleLowerCase();
+    if (query) {
+      items = items.filter((p) =>
+        `${p.name} ${p.category} ${p.description}`
+          .toLocaleLowerCase()
+          .includes(query),
+      );
+    }
     const sort = document.getElementById("sort-products").value;
     if (sort === "low") items.sort((a, b) => a.price - b.price);
     if (sort === "high") items.sort((a, b) => b.price - a.price);
@@ -185,6 +194,7 @@ if (shopProducts) {
   document
     .getElementById("sort-products")
     .addEventListener("change", renderShop);
+  search?.addEventListener("input", renderShop);
   renderShop();
 }
 const detailImage = document.getElementById("detail-image");
@@ -232,7 +242,7 @@ function renderCart() {
     .map((item) => {
       const p = PRODUCTS.find((x) => x.id === item.id);
       if (!p) return "";
-      return `<article class="cart-item"><a href="product.html?id=${p.id}"><img src="${p.image}" alt="${p.name}"></a><div><h3>${p.name}</h3><p>${p.category} · Qty ${item.qty}</p><button class="remove-item" data-remove="${p.id}">Remove</button></div><span class="cart-item-price">${money(p.price * item.qty)}</span></article>`;
+      return `<article class="cart-item"><a href="product.html?id=${p.id}"><img src="${p.image}" alt="${p.name}"></a><div><h3>${p.name}</h3><p>${p.category}</p><div class="cart-item-actions"><div class="quantity-control" aria-label="Quantity"><button type="button" data-qty="${p.id}" data-delta="-1" aria-label="Decrease ${p.name} quantity">−</button><span>${item.qty}</span><button type="button" data-qty="${p.id}" data-delta="1" aria-label="Increase ${p.name} quantity">+</button></div><button class="remove-item" data-remove="${p.id}">Remove</button></div></div><span class="cart-item-price">${money(p.price * item.qty)}</span></article>`;
     })
     .join("");
   const total = cart.reduce((sum, item) => {
@@ -249,6 +259,18 @@ if (cartContent) {
     const b = e.target.closest("[data-remove]");
     if (b) {
       saveCart(getCart().filter((i) => i.id !== Number(b.dataset.remove)));
+      renderCart();
+    }
+    const quantityButton = e.target.closest("[data-qty]");
+    if (quantityButton) {
+      const id = Number(quantityButton.dataset.qty);
+      const delta = Number(quantityButton.dataset.delta);
+      const updated = getCart().map((item) =>
+        item.id === id
+          ? { ...item, qty: Math.max(1, Math.min(10, item.qty + delta)) }
+          : item,
+      );
+      saveCart(updated);
       renderCart();
     }
   });
@@ -268,13 +290,25 @@ document.querySelectorAll("#newsletter-form").forEach((form) =>
     form.reset();
   }),
 );
-document
-  .querySelectorAll(".menu-toggle")
-  .forEach((btn) =>
-    btn.addEventListener("click", () =>
-      document.querySelector(".nav")?.classList.toggle("open"),
-    ),
+document.querySelectorAll(".menu-toggle").forEach((btn) => {
+  const nav = btn.parentElement.querySelector(".nav");
+  btn.setAttribute("aria-expanded", "false");
+  btn.addEventListener("click", () => {
+    const open = nav?.classList.toggle("open") ?? false;
+    btn.setAttribute("aria-expanded", String(open));
+    btn.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+  });
+  nav?.querySelectorAll("a").forEach((link) =>
+    link.addEventListener("click", () => {
+      nav.classList.remove("open");
+      btn.setAttribute("aria-expanded", "false");
+      btn.setAttribute("aria-label", "Open navigation");
+    }),
   );
+});
+if (location.hash === "#product-search") {
+  document.getElementById("product-search")?.focus();
+}
 document
   .querySelectorAll("#year")
   .forEach((el) => (el.textContent = new Date().getFullYear()));
