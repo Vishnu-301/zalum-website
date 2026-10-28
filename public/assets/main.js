@@ -89,6 +89,38 @@ const PRODUCTS = [
   },
 ];
 const money = (n) => "₦" + Number(n).toLocaleString("en-NG");
+const WHATSAPP_NUMBER = "2347044472825";
+function whatsappUrl(message) {
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
+function cartOrderMessage() {
+  const cart = getCart();
+  const lines = cart.flatMap((item) => {
+    const product = PRODUCTS.find((entry) => entry.id === item.id);
+    return product
+      ? [`• ${product.name} × ${item.qty} — ${money(product.price * item.qty)}`]
+      : [];
+  });
+  const total = cart.reduce((sum, item) => {
+    const product = PRODUCTS.find((entry) => entry.id === item.id);
+    return sum + (product ? product.price * item.qty : 0);
+  }, 0);
+  return [
+    "Hi Zal's Beadworks, I'd like to place this order:",
+    "",
+    ...lines,
+    "",
+    `Subtotal: ${money(total)}`,
+    "Delivery: please confirm",
+    `Total before delivery: ${money(total)}`,
+    "Please let me know the next steps.",
+  ].join("\n");
+}
+document.querySelectorAll('[data-whatsapp="custom"]').forEach((link) => {
+  link.href = whatsappUrl(
+    "Hi Zal's Beadworks, I'd like to ask about a custom bead order.",
+  );
+});
 const getCart = () => {
   try {
     return JSON.parse(localStorage.getItem("zalsCart") || "[]");
@@ -211,6 +243,12 @@ if (detailImage) {
   document.getElementById("detail-image").alt = p.name;
   document.getElementById("detail-description").textContent = p.description;
   document.getElementById("detail-add-price").textContent = money(p.price);
+  const customOrderLink = document.querySelector('[data-whatsapp="custom-product"]');
+  if (customOrderLink) {
+    customOrderLink.href = whatsappUrl(
+      `Hi Zal's Beadworks, I'd like to customize the ${p.name}. Can we discuss colours, sizing, and design options?`,
+    );
+  }
   let qty = 1;
   const qtyEl = document.getElementById("qty");
   document.getElementById("qty-minus").onclick = () => {
@@ -274,13 +312,11 @@ if (cartContent) {
       renderCart();
     }
   });
-  document
-    .getElementById("checkout-button")
-    .addEventListener("click", () =>
-      toast(
-        "Checkout isn't connected yet. Please contact the store to complete your order.",
-      ),
-    );
+  document.getElementById("checkout-button").addEventListener("click", () => {
+    const cart = getCart();
+    if (!cart.length) return;
+    window.location.href = whatsappUrl(cartOrderMessage());
+  });
 }
 document.querySelectorAll("#newsletter-form").forEach((form) =>
   form.addEventListener("submit", (e) => {

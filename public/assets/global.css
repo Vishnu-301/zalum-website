@@ -1473,3 +1473,254 @@ h2 {
     animation-duration: .01ms !important;
   }
 }
+
+/* Layouts from compact phones through wide desktop screens */
+@media (min-width: 1440px) {
+  .hero,
+  .section,
+  .about-hero,
+  .newsletter,
+  .footer,
+  .site-header {
+    padding-left: max(6%, calc((100vw - 1320px) / 2));
+    padding-right: max(6%, calc((100vw - 1320px) / 2));
+  }
+
+  .hero {
+    min-height: 640px;
+  }
+
+  .hero-image {
+    max-width: 470px;
+    height: 510px;
+  }
+}
+
+@media (max-width: 760px) {
+  .site-header {
+    height: 68px;
+    padding: 0 5%;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin-left: auto;
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--cream);
+    padding: 18px 6% 22px;
+    box-shadow: 0 12px 20px #30153a12;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
+  .header-actions {
+    gap: 10px;
+  }
+
+  .icon-link {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .announcement {
+    padding: 7px 10px;
+    font-size: 8px;
+    letter-spacing: .1em;
+  }
+
+  .site-header {
+    gap: 10px;
+    padding-inline: 4%;
+  }
+
+  .brand {
+    font-size: 21px;
+  }
+
+  .hero h1 {
+    font-size: clamp(43px, 13vw, 56px);
+  }
+
+  .hero-image {
+    width: 88%;
+    height: clamp(250px, 82vw, 320px);
+  }
+
+  .section-heading {
+    gap: 10px;
+  }
+
+  .section-heading span {
+    width: 8vw;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(21px, 6vw, 26px);
+  }
+
+  .category-grid {
+    gap: 10px;
+  }
+
+  .category-card img {
+    height: clamp(95px, 29vw, 125px);
+  }
+
+  .product-photo {
+    height: clamp(145px, 46vw, 200px);
+  }
+
+  .product-meta {
+    align-items: flex-start;
+  }
+
+  .mini-add {
+    padding: 7px 8px;
+  }
+
+  .page-intro h1 {
+    font-size: clamp(32px, 9vw, 39px);
+  }
+
+  .newsletter form {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .newsletter form button {
+    padding-inline: 9px;
+  }
+
+  .detail-image-wrap img {
+    height: clamp(280px, 95vw, 390px);
+  }
+
+  .cart-item {
+    grid-template-columns: 64px minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .cart-item img {
+    width: 64px;
+    height: 78px;
+  }
+
+  .cart-item-price {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .cart-item-actions .quantity-control {
+    gap: 8px;
+  }
+
+  .footer {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .copyright {
+    grid-column: 1;
+  }
+}
+
+.callout-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.quote-banner .whatsapp-button,
+.about-callout .whatsapp-button {
+  border-color: #fff;
+  color: #fff;
+}
+
+.quote-banner .whatsapp-button:hover,
+.about-callout .whatsapp-button:hover {
+  background: #ffffff20;
+}
+
+.whatsapp-link {
+  color: var(--purple);
+  font-weight: 600;
+}
+
+.custom-order-link {
+  margin-top: 12px;
+}
+
+.custom-beads-promo {
+  margin: 15px 6% 55px;
+  padding: clamp(24px, 4vw, 46px);
+  border-radius: 20px;
+  background: var(--soft);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.custom-beads-promo > div {
+  max-width: 620px;
+}
+
+.custom-beads-promo .eyebrow {
+  margin-bottom: 9px;
+}
+
+.custom-beads-promo h2 {
+  font-size: clamp(26px, 3vw, 38px);
+  margin-bottom: 8px;
+}
+
+.custom-beads-promo p:last-child {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 0;
+}
+
+@media (max-width: 360px) {
+  .cart-link {
+    padding: 6px 7px;
+  }
+
+  .menu-toggle {
+    padding: 4px;
+  }
+
+  .product-grid,
+  .shop-grid {
+    gap: 8px;
+  }
+
+  .product-card h3 {
+    font-size: 11px;
+  }
+
+  .price {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 700px) {
+  .custom-beads-promo {
+    margin: 0 5% 40px;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+}
