@@ -76,6 +76,14 @@ select {
   letter-spacing: -.04em
 }
 
+.nav-logo {
+  display: block;
+  width: 86px;
+  height: 76px;
+  object-fit: cover;
+  object-position: center;
+}
+
 .brand span {
   font-family: var(--font-body);
   font-size: 10px;
@@ -1034,6 +1042,11 @@ h2 {
     height: 75px
   }
 
+  .nav-logo {
+    width: 76px;
+    height: 68px;
+  }
+
   .nav {
     gap: 20px
   }
@@ -1098,6 +1111,11 @@ h2 {
 
   .site-header {
     height: 68px
+  }
+
+  .nav-logo {
+    width: 66px;
+    height: 58px;
   }
 
   .brand {
