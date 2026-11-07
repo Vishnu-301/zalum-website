@@ -173,7 +173,6 @@ const PRODUCTS = [
     category: "Anklets",
     price: 1000,
     image: "./public/images/store/WhatsApp Image 2026-11-07 at 13.55.06(1).jpeg",
-    tag: "Sweet finish",
     description:
       "A playful sugar anklet with a clean, delicate design. It adds a sweet finishing touch to your look without feeling heavy or overdone.",
   }, {
@@ -237,11 +236,12 @@ function updateCartCount() {
     .querySelectorAll(".cart-count")
     .forEach((el) => (el.textContent = count));
 }
-function productCard(p) {
-  return `<article class="product-card"><span class="product-tag">${p.tag}</span><a href="product.html?id=${p.id}"><img class="product-photo" src="${p.image}" alt="${p.name}" loading="lazy"><h3>${p.name}</h3></a><div class="product-meta"><span class="price">${money(p.price)}</span><button class="mini-add" data-add="${p.id}">Add +</button></div></article>`;
+function productCard(p, showTag = false) {
+  const tagMarkup = showTag && p.tag ? `<span class="product-tag">${p.tag}</span>` : "";
+  return `<article class="product-card">${tagMarkup}<a href="product.html?id=${p.id}"><img class="product-photo" src="${p.image}" alt="${p.name}" loading="lazy"><h3>${p.name}</h3></a><div class="product-meta"><span class="price">${money(p.price)}</span><button class="mini-add" data-add="${p.id}">Add +</button></div></article>`;
 }
-function renderCards(el, products) {
-  if (el) el.innerHTML = products.map(productCard).join("");
+function renderCards(el, products, { showTag = false } = {}) {
+  if (el) el.innerHTML = products.map((p) => productCard(p, showTag)).join("");
 }
 function addToCart(id, qty = 1) {
   const p = PRODUCTS.find((x) => x.id === Number(id));
@@ -283,7 +283,7 @@ document.addEventListener("click", (e) => {
   if (b) addToCart(b.dataset.add);
 });
 const homeProducts = document.getElementById("home-products");
-if (homeProducts) renderCards(homeProducts, PRODUCTS.slice(0, 4));
+if (homeProducts) renderCards(homeProducts, PRODUCTS.slice(0, 4), { showTag: true });
 const shopProducts = document.getElementById("shop-products");
 if (shopProducts) {
   let category = new URLSearchParams(location.search).get("category") || "All";
@@ -362,6 +362,7 @@ if (detailImage) {
   renderCards(
     document.getElementById("related-products"),
     PRODUCTS.filter((x) => x.id !== p.id).slice(0, 4),
+    { showTag: false },
   );
 }
 function renderCart() {
