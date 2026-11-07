@@ -21,13 +21,13 @@ const PRODUCTS = [
     },
   {
     id: 3,
-    name: "whimsy",
+    name: "WHIMSY",
     category: "Bracelets",
-    price: 15000,
+    price: 6000,
     image: "./public/images/store/WhatsApp%20Image%202026-10-30%20at%2015.16.08.jpeg",
-    tag: "Ocean inspired",
+    tag: "Delicate design",
     description:
-      "A beaded bracelet with an ocean-inspired look and a hint of glow. Wear it solo or stack it with your other favourites.",
+      "A beaded bracelet with a delicate design look and a hint of glow. Wear it solo or stack it with your other favourites.",
   },
   {
     id: 4,
@@ -151,6 +151,15 @@ const PRODUCTS = [
   },
   {
     id: 16,
+    name: "Velvet",
+    category: "Anklets",
+    price: 5000,
+    image: "./public/images/store/WhatsApp Image 2026-11-07 at 13.55.06.jpeg",
+    tag: "Soft sparkle",
+    description:
+      "A lightweight velvet anklet with a soft, feminine finish. It is easy to style for everyday wear and adds a subtle touch of elegance to any outfit.",
+  }, {
+    id: 17,
     name: "Pink Glow in the dark waistbead set",
     category: "Waistbeads",
     price: 15000,
@@ -158,6 +167,24 @@ const PRODUCTS = [
     tag: "Glow-in-the-dark",
     description:
       "A pink waistbead set with glow-in-the-dark beads for a playful look that stands out after dark.",
+  }, {
+    id: 18,
+    name: "Sugar",
+    category: "Anklets",
+    price: 1000,
+    image: "./public/images/store/WhatsApp Image 2026-11-07 at 13.55.06(1).jpeg",
+    tag: "Sweet finish",
+    description:
+      "A playful sugar anklet with a clean, delicate design. It adds a sweet finishing touch to your look without feeling heavy or overdone.",
+  }, {
+    id: 19,
+    name: "Dove Anklet",
+    category: "Anklets",
+    price: 4000,
+    image: "./public/images/store/WhatsApp Image 2026-11-07 at 13.55.07.jpeg",
+    tag: "Dove detail",
+    description:
+      "A refined anklet with a dove-inspired detail that brings a graceful, soft statement to your everyday style. It is light, elegant, and easy to wear.",
   },
 ];
 const money = (n) => "₦" + Number(n).toLocaleString("en-NG");
