@@ -12,7 +12,7 @@ const PRODUCTS = [
   {
     id: 2,
     name: "Amethyst",
-    category: "Bracelets",
+    category: "Necklaces",
       price: 30000,
       image: "./public/images/store/WhatsApp%20Image%202026-10-30%20at%2014.44.26.jpeg",
       tag: "Amethyst tones",
@@ -21,7 +21,7 @@ const PRODUCTS = [
     },
   {
     id: 3,
-    name: "Ocean glow bracelet",
+    name: "whimsy",
     category: "Bracelets",
     price: 15000,
     image: "./public/images/store/WhatsApp%20Image%202026-10-30%20at%2015.16.08.jpeg",
@@ -112,7 +112,7 @@ const PRODUCTS = [
   {
     id: 12,
     name: "Blush",
-    category: "Waistbeads",
+    category: "Necklaces",
     price: 15000,
     image: "./public/images/store/WhatsApp Image 2026-11-05 at 11.18.39.jpeg",
     tag: "Blush tones",
