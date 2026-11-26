@@ -180,7 +180,7 @@ const PRODUCTS = [
   },
   {
     id: 19,
-    name: "Dove Anklet",
+    name: "Dove",
     category: "Anklets",
     price: 4000,
     image: "./public/images/store/WhatsApp Image 2026-11-07 at 13.55.07.jpeg",
@@ -190,96 +190,78 @@ const PRODUCTS = [
   },
   {
     id: 20,
-    name: "Purple Celestial Waistbead Set",
+    name: "Purple",
     category: "Celestials",
     price: 3500,
     image: "./public/images/store/celestia/purple.jpeg",
     tag: "Celestial collection",
-    description:
-      "A purple celestial waistbead set finished with sparkling beads and starry charms.",
   },
   {
     id: 21,
-    name: "Pink Celestial Waistbead Set",
+    name: "Pink",
     category: "Celestials",
     price: 3500,
     image: "./public/images/store/celestia/pink.jpeg",
     tag: "Celestial collection",
-    description:
-      "A pink celestial waistbead set with playful sun and star charms.",
   },
   {
     id: 22,
-    name: "Peach Celestial Waistbead Set",
+    name: "Peach",
     category: "Celestials",
     price: 3500,
     image: "./public/images/store/celestia/peach.jpeg",
     tag: "Celestial collection",
-    description:
-      "A soft peach celestial waistbead set accented with sun and star details.",
   },
   {
     id: 23,
-    name: "Blue Celestial Waistbead Set",
+    name: "Blue",
     category: "Celestials",
     price: 3500,
     image: "./public/images/store/celestia/blue.jpeg",
     tag: "Celestial collection",
-    description:
-      "A bright blue celestial waistbead set with moon and star charms.",
   },
   {
     id: 24,
-    name: "Black Celestial Waistbead Set",
+    name: "Black",
     category: "Celestials",
     price: 3500,
     image: "./public/images/store/celestia/black.jpeg",
     tag: "Celestial collection",
-    description:
-      "A black celestial waistbead set with a polished, starry finish.",
   },
   {
     id: 25,
-    name: "Blue Celestial Charm",
+    name: "Blue",
     category: "Celestials",
     price: 3500,
     image:
       "./public/images/store/celestia/WhatsApp%20Image%202026-11-26%20at%2008.53.04.jpeg",
     tag: "Celestial collection",
-    description:
-      "A blue beaded charm with a bow, star, and celestial-inspired details.",
   },
   {
     id: 26,
-    name: "Pink Celestial Charm",
+    name: "Pink",
     category: "Celestials",
     price: 3500,
     image:
       "./public/images/store/celestia/WhatsApp%20Image%202026-11-26%20at%2008.53.03.jpeg",
     tag: "Celestial collection",
-    description:
-      "A pink beaded charm finished with a bow, star, and celestial-inspired details.",
   },
   {
     id: 27,
-    name: "Lavender Celestial Bracelet Set",
+    name: "purple",
     category: "Celestials",
     price: 3500,
     image:
       "./public/images/store/celestia/WhatsApp%20Image%202026-11-26%20at%2008.53.03(1).jpeg",
     tag: "Celestial collection",
-    description:
-      "A lavender bracelet set with delicate star charms and shimmering accents.",
   },
   {
     id: 28,
-    name: "Peach Celestial Bracelet Set",
+    name: "Peach",
     category: "Celestials",
     price: 3500,
     image:
       "./public/images/store/celestia/WhatsApp%20Image%202026-11-26%20at%2008.53.02(1).jpeg",
     tag: "Celestial collection",
-    description:
-      "A peach-toned bracelet set with star charms and shimmering accents.",
   },
 ];
